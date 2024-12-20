@@ -1,18 +1,31 @@
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Grid2, Stack, Typography } from "@mui/material";
 import { profileData } from "./utils";
+import useStyles from "./styles";
 
 const Profile = () => {
+  const styles = useStyles();
   return (
-    <Box>
+    <Stack display="flex" direction="row">
       <Avatar
         alt={profileData.name}
         src={profileData.picture}
-        sx={{
-          width: 200,
-          height: 200,
-        }}
+        sx={styles.avatar}
       />
-    </Box>
+      <Grid2
+        container
+        display="flex"
+        direction="column"
+        gap={4}
+        paddingLeft={4}
+      >
+        <Grid2>
+          <Typography variant="h3">{profileData.name}</Typography>
+        </Grid2>
+        <Grid2>
+          <Typography variant="h5">{profileData.bio}</Typography>
+        </Grid2>
+      </Grid2>
+    </Stack>
   );
 };
 export default Profile;
