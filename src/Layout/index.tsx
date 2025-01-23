@@ -1,11 +1,11 @@
-import Grid2 from "@mui/material/Grid2";
 import Profile from "../Profile";
 import Header from "../Header";
+import Box from "@mui/material/Box";
 
 const Layout = () => (
-  <Grid2>
+  <Box width="100%" height="100%">
     <Header />
     <Profile />
-  </Grid2>
+  </Box>
 );
 export default Layout;
