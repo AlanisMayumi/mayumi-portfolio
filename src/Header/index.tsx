@@ -1,10 +1,10 @@
-import { AppBar, Badge, Box, Container, IconButton } from "@mui/material";
+import { AppBar, Box, Container, IconButton } from "@mui/material";
 
 import MailIcon from "@mui/icons-material/Mail";
-
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import { AccountCircle } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+import { personalLinks } from "./utils";
 
 const Header = () => {
   return (
@@ -15,7 +15,7 @@ const Header = () => {
             size="large"
             color="inherit"
             onClick={() =>
-              (window.location.href = "mailto:alanismayumidev@gmail.com")
+              (window.location.href = `mailto:${personalLinks.mailAddress}`)
             }
           >
             <MailIcon />
@@ -23,20 +23,16 @@ const Header = () => {
           <IconButton
             size="large"
             color="inherit"
-            onClick={() => window.open("https://github.com/AlanisMayumi", "_blank")}
+            onClick={() => window.open(personalLinks.github, "_blank")}
           >
             <GitHubIcon />
           </IconButton>
           <IconButton
             size="large"
-            edge="end"
-            aria-label="account of current user"
-            // aria-controls={menuId}
-            aria-haspopup="true"
-            // onClick={handleProfileMenuOpen}
             color="inherit"
+            onClick={() => window.open(personalLinks.linkedIn, "_blank")}
           >
-            <AccountCircle />
+            <LinkedInIcon />
           </IconButton>
         </Box>
       </Container>
