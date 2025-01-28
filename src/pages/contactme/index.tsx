@@ -1,18 +1,29 @@
+import { useCallback, useState } from "react";
+
 import { Typography, Grid2 } from "@mui/material";
+import { Button } from "@mui/joy";
 import Textarea from "@mui/joy/Textarea";
 import Input from "@mui/joy/Input";
 import Snackbar from "@mui/joy/Snackbar";
 import emailjs from "@emailjs/browser";
 
 import Page from "../../components/page";
-import { Button } from "@mui/joy";
-import { useCallback, useState } from "react";
 
 type Message = {
   text: string;
   color: "primary" | "neutral" | "danger" | "success" | "warning";
   open: boolean;
 };
+
+interface FormElements extends HTMLFormControlsCollection {
+  name: HTMLInputElement;
+  email_from: HTMLInputElement;
+  message: HTMLInputElement;
+}
+interface ContactMeFormElement extends HTMLFormElement {
+  readonly elements: FormElements;
+}
+
 const Contactme = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<Message>({
@@ -29,7 +40,7 @@ const Contactme = () => {
     setMessage({ ...message, open: false });
   };
 
-  const submitEmail = (e) => {
+  const submitEmail = (e: React.FormEvent<ContactMeFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -37,7 +48,7 @@ const Contactme = () => {
       .sendForm(
         import.meta.env.VITE_EMAIL_SERVICE_ID,
         import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        e.target,
+        e.currentTarget,
         import.meta.env.VITE_EMAIL_PUBLIC_KEY
       )
       .then(
