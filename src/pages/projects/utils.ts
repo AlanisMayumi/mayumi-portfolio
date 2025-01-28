@@ -19,7 +19,7 @@ export const projectsMock = [
     id: 3,
     title: "Dash Go app",
     link: "https://github.com/AlanisMayumi/dashgo",
-    image: "public/images/chess_console_app.jpeg",
+    image: "public/images/dashboard_image.png",
     summary: "The project is designed for those who enjoy chess and appreciate minimalistic, text-based interfaces. Whether you're practicing programming or playing chess without a graphical interface, this app offers a straightforward and engaging experience."
   },
 ];
