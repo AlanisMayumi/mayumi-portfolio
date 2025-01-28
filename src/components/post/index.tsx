@@ -17,7 +17,7 @@ type PostProps = {
 
 const Post = ({ title, link, image, summary }: PostProps) => {
   return (
-    <Card sx={{ maxWidth: "35vw", height: "55vh" }}>
+    <Card sx={{ maxWidth: "35vw", height: "60vh" }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -25,13 +25,22 @@ const Post = ({ title, link, image, summary }: PostProps) => {
           image={image}
           alt="project image"
         />
-        <CardContent>
+        <CardContent
+          sx={{
+            height: "25vh",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
           <Typography gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography
             variant="body2"
-            sx={{ textAlign: "left", color: "text.secondary" }}
+            sx={{
+              textAlign: "left",
+              color: "text.secondary",
+            }}
           >
             {summary}
           </Typography>

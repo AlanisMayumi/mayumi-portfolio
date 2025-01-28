@@ -9,7 +9,7 @@ const Page = ({ children }: PageProps) => {
   return (
     <Box width="100%" height="100%">
       <Header />
-      <Box width="100%" height="80vh">
+      <Box width="90vw" height="80vh">
         {children}
       </Box>
     </Box>
